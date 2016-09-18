@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/bootstrap/js/jquery-3.1.0.min.js,WebRoot/bootstrap/js/jquery-1.11.1.min.js
+validator.Revalidate=true
+validator.Unchecked=

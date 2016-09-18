@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+body{
+	background-color:  #E0FFFF ;
+}
+
+#homeHeader{
+	color:red;
+	font: italic bold ;
+	font-size:250%;
+	text-align:center;
+	
+}
+
+#homeContent{
+	text-align:center;
+	margin-top:140px;
+	
+}
+
+.putong input{
+	background-color:yellow;
+}
+
+.super input{
+	background-color:red;
+}
+input{
+	width:250px;
+	height:65px;
+	font-size:20px;
+	margin:0 60px 50px 60px;
+	border:2px solid #a1a1a1;
+	border-radius:7px;//允许向元素添加圆角
+	
+}
+
+#homeFooter{
+	
+	text-align:center;
+	font-size:25px;
+	margin-top:30px;
+}

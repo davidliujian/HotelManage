@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+body{
+	background-image:url("../image/bg2.png");
+	background-position:right top;
+//	background-repeat:no-repeat;
+}
+input{
+	position:relative;
+	height:40px; 
+	width:250px;
+	
+    font-size: 20px;
+    margin: 0 60px 50px 60px;
+    border: 2px solid #a1a1a1;
+}
+#button{
+	width:130px;
+	height:50px;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#4EEE94;
+}
+#button:hover{
+	width:140px;
+	height:65px;
+}
+#Header{
+	color:red;
+//	font: italic bold ;
+	font-size:250%;
+	text-align:center;
+}
