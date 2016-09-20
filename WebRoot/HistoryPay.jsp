@@ -204,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    <tr>
 					      <td><%=vipcard.getOrderNum() %></td>
 					      <td><%=vipcard.getPrice() %></td>
-					      <td><%=vipcard.getLeaveTime() %></td>
+					      <td><%=vipcard.getLeaveTime().toString() %></td>
 					    </tr>
 					    
 					    

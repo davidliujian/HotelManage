@@ -2,6 +2,7 @@ package com.hotel.registration;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,8 +52,17 @@ public class GroupFinish extends HttpServlet {
 			return ;
 		}
 		
-		
-		resp.sendRedirect("/HotelManagement/Group.jsp");
+		int dep=0;
+		ArrayList list = (ArrayList)CustomerManage.selectRoom(OrderNum);
+		Iterator it = list.iterator();
+		while(it.hasNext()){
+			int Room =(Integer) it.next();
+			
+			
+			dep += RoomManage.selectByRoomId(Room).getDeposit();
+		}
+		out.print("<h3>您一共需要缴纳"+dep+"元押金！！</h3>");
+//		resp.sendRedirect("/HotelManagement/Group.jsp");
 	
 	}
 

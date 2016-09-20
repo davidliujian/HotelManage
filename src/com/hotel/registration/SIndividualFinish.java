@@ -3,6 +3,7 @@ package com.hotel.registration;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,7 +64,16 @@ public class SIndividualFinish extends HttpServlet{
 					return ;
 				}
 				
-				resp.sendRedirect("/HotelManagement/SuperIndividual.jsp");
+				int dep=0;
+				ArrayList list3 = (ArrayList)CustomerManage.selectRoom(OrderNum);
+				Iterator it = list3.iterator();
+				while(it.hasNext()){
+					int Room =(Integer) it.next();
+					
+					
+					dep += RoomManage.selectByRoomId(Room).getDeposit();
+				}
+				out.print("<h3>您一共需要缴纳"+dep+"元押金！！</h3>");
 			}else{
 				System.out.println("IDCard为空！！！！！！！！！！！！！！！！！！");
 				resp.sendRedirect("/HotelManagement/errors/errorVIP.html");

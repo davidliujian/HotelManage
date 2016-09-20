@@ -10,8 +10,8 @@ public class HasPayedBean {
 	public Timestamp getLeaveTime() {
 		return PayedTime;
 	}
-	public void setLeaveTime(Timestamp PayedTime) {
-		PayedTime = PayedTime;
+	public void setLeaveTime(Timestamp payedTime) {
+		PayedTime = payedTime;
 	}
 	public int getOrderNum() {
 		return OrderNum;

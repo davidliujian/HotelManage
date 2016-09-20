@@ -183,6 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<%
 			
 				float price=0;
+				int deposit=0;
 				String ChooseRoom="";
 				String OrderNums =request.getParameter("OrderNum");
 				if(OrderNums ==null){
@@ -193,15 +194,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				Iterator it = list.iterator();
 				while(it.hasNext()){
 					int Room =(Integer) it.next();
-					RoomManage.updateIsEmp(Room, RoomManage.selectByRoomId(Room).getRoomSize());
-					ChooseRoom=ChooseRoom+Room+"   ";
+					
+					deposit+=RoomManage.selectByRoomId(Room).getDeposit();
+					ChooseRoom=ChooseRoom+Room+"  ";
 					price += RoomManage.selectByRoomId(Room).getRoomPrice();
 				}
 		//		ServletContext context =this.getServletContext();
 		//		context.setAttribute("ChooseRoom", ChooseRoom);
 				int IsVIP = CustomerManage.selectIsVIP(OrderNum);
 				if(IsVIP==1){
-					price =(float) (price*0.85);
+					price =(float) (price*0.85-deposit);
+				}else{
+					price = price-deposit;
 				}
 		//		context.setAttribute("price", price);
 				

@@ -3,6 +3,7 @@ package com.hotel.registration;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,7 +61,16 @@ public class individualFinish extends HttpServlet {
 		}
 		
 		
-		resp.sendRedirect("/HotelManagement/Individual.jsp");
+		int dep=0;
+		ArrayList list1 = (ArrayList)CustomerManage.selectRoom(OrderNum);
+		Iterator it = list1.iterator();
+		while(it.hasNext()){
+			int Room =(Integer) it.next();
+			
+			
+			dep += RoomManage.selectByRoomId(Room).getDeposit();
+		}
+		out.print("<h3>您一共需要缴纳"+dep+"元押金！！</h3>");
 	
 		
 	

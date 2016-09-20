@@ -30,8 +30,15 @@ public class CheckOut extends HttpServlet{
 			resp.setContentType("text/html;charset=utf-8");
 			PrintWriter out = resp.getWriter();
 			
+			String RoomIDs = req.getParameter("Room");
+//			System.out.println(RoomIDs);
 			String p =req.getParameter("price");
+			String RoomID[] = RoomIDs.split("  ");
 			System.out.println(p);
+			for(int i =0;i<RoomID.length;i++){
+				
+				RoomManage.updateIsEmp(Integer.parseInt(RoomID[i]), RoomManage.selectByRoomId(Integer.parseInt(RoomID[i])).getRoomSize());
+			}
 			int OrderNum = Integer.parseInt(req.getParameter("OrderNum"));
 			float price = Float.parseFloat(p);
 			//从customer中删除此订单

@@ -187,6 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}else{
 						int nVIPId = Integer.parseInt(VIPId);
 						VipcardManage.delete(nVIPId);
+						response.sendRedirect("/HotelManagement/VIPInfo.jsp");
 					}
 				%>
 		</div>

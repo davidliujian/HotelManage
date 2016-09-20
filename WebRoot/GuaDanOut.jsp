@@ -193,8 +193,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				Iterator it = list.iterator();
 				while(it.hasNext()){
 					int Room =(Integer) it.next();
-					RoomManage.updateIsEmp(Room, RoomManage.selectByRoomId(Room).getRoomSize());
-					ChooseRoom=ChooseRoom+Room+"   ";
+					
+					ChooseRoom=ChooseRoom+Room+"  ";
 					price += RoomManage.selectByRoomId(Room).getRoomPrice();
 				}
 		//		ServletContext context =this.getServletContext();
